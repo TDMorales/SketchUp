@@ -1,14 +1,13 @@
 import React from 'react';
 import { Showcase } from './components/homepage/Showcase'
-import './App.css';
+import { ImageIndex } from './components/ImageIndex/ImageIndex'
 
-
-
-function App() {
+function App () {
   return (
     <div className="App">
       <header>User Name Login LogOut</header>
         <Showcase />
+        <ImageIndex/>
       <footer>SketchUp</footer>
     </div>
   );
