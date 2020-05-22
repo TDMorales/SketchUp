@@ -4,12 +4,7 @@ import { useHistory, useParams} from 'react-router'
 
 export function LoginPage(props){
 
-    let history = useHistory()
-
-    const [user, changeUser] = useState({
-        username: '',
-        password: ''
-    })
+  
 
     //Log In Functionality 
     //username -> Nikia    pass -> 123
@@ -33,6 +28,7 @@ export function LoginPage(props){
             console.log("i am logged in as ", user)
         }
     }
+    
 
         return (
         <div>

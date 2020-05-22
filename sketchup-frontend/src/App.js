@@ -4,9 +4,24 @@ import './App.css';
 import { LoginPage } from './components/profile/LoginPage';
 import { BrowserRouter, Route} from 'react-router-dom'
 import { ProfilePage } from './components/profile/ProfilePage';
+import React, { useState } from 'react'
+import { useHistory} from 'react-router'
 
 
 function App() {
+
+
+  let history = useHistory()
+
+  const [user, changeUser] = useState({
+      username: '',  
+      password: ''
+  })
+
+  userLogin = (user) => {
+    
+  }
+  
 
   //call here 
   return (
@@ -14,7 +29,10 @@ function App() {
       <header>User Name Login LogOut</header>
       <BrowserRouter>
 
-        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/login" 
+        handleUserLogin={handleUserLogin}
+        handleLoginSubmit={handleLoginSubmit}
+        component={LoginPage} />
         <Route exact path="/users/:id" component={ProfilePage} />
       </BrowserRouter>
       <footer>SketchUp</footer>
