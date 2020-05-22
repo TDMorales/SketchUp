@@ -16,12 +16,15 @@ function App() {
   
   return (
     <div className="App">
-      <header>{user.username} Login LogOut</header>
+      <Showcase />
       <BrowserRouter>
-
+        {/* <Route exact path="/" component={Showcase} /> */}
+        <Route exact path="/image_index" component={ImageIndex} />
         <Route exact path="/login" component={LoginPage} />
         {/* wrap in ternary depending on logged in */}
-        <Route exact path="/users/:id" component={ProfilePage} />
+        
+        <Route exact path="user/:id" component={ProfilePage} />
+      
       </BrowserRouter>
       <footer>SketchUp</footer>
     </div>
