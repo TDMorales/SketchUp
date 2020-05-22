@@ -1,25 +1,30 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
-import ProfilePageButton from './ProfilePageButton'
+import { useState } from 'react'
+import { useHistory, useParams} from 'react-router'
 
-class FormCaptureValues extends Component {
-  state = { username: '', password: '', submittedUsername: '', submittedPassword: '' }
+export function FormCaptureValues (props){
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  let history = useHistory()
 
-  handleSubmit = () => {
-    const { username, password } = this.state
+  const [user, changeUser] = useState({
+    username: '',
+    password: ''
+})
 
-    this.setState({ submittedUsername: username, submittedPassword: password })
-    this.handleLoginSubmit(this.state)
-  }
+  //validation
 
-  //Log In Functionality 
-    //username -> Nikia    pass -> 123
-    handleLoginSubmit = (e) => {
-      console.log("handle submit ran with an event", this.state)
-      // e.preventDefault()
-      fetch('http://localhost:3000/login', {
+  // state = { username: '', password: '', submittedUsername: '', submittedPassword: '' }
+
+  // handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+
+
+    //Log In Functionality 
+    //username -> Bibi    pass -> 123
+    async function handleLoginSubmit(e){
+      e.preventDefault()
+      let response = await fetch('http://localhost:3000/login', {
           credentials: 'include',
           method: 'POST',
           headers: {
@@ -27,42 +32,47 @@ class FormCaptureValues extends Component {
               'Accept': 'application/json'
           },
           body: JSON.stringify({
-              username: this.state.username,
-              password: this.state.password
-          }, console.log(this.state.username))
+              username: e.target.username.value,
+              password: e.target.password.value
+          })
       })
+      let { success, id } = await response.json()
+      if(success){
+          history.push(`/users/${id}`)
+          console.log("i am logged in as ", user)
+      }
   }
 
-  render() {
-    const { username, password, submittedUsername, submittedPassword } = this.state
+
+  
+    // const { username, password, submittedUsername, submittedPassword } = this.state
 
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={handleLoginSubmit}>
           <Form.Group>
             <Form.Input
               placeholder='Username'
               name='username'
-              value={username}
-              onChange={this.handleChange}
+              // value={username}
+              onChange={(e) => changeUser({...user, username: e.target.value})}
             />
             <Form.Input
               placeholder='Password'
               name='password'
-              value={password}
-              onChange={this.handleChange}
+              // value={password}
+              onChange={(e) => changeUser({...user, password: e.target.value})}
             />
-            {/* <Form.Button content='Submit' /> */}
-            <ProfilePageButton fix={this.state.fixed}/>
+            <Form.Button content='Submit' />
           </Form.Group>
         </Form>
         <strong>onChange:</strong>
-        <pre>{JSON.stringify({ username, password }, null, 2)}</pre>
+        {/* <pre>{JSON.stringify({ username, password }, null, 2)}</pre> */}
         <strong>onSubmit:</strong>
-        <pre>{JSON.stringify({ submittedUsername, submittedPassword }, null, 2)}</pre>
+        {/* <pre>{JSON.stringify({ submittedUsername, submittedPassword }, null, 2)}</pre> */}
       </div>
     )
-  }
 }
+
 
 export default FormCaptureValues

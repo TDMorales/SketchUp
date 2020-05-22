@@ -5,11 +5,9 @@ import { ImageShow}  from './components/ImageShow/ImageShow'
 import { BrowserRouter, Route} from 'react-router-dom'
 import { HomePage } from './components/homepage/HomePage'
 import './App.css';
-import { LoginPage } from './components/profile/LoginPage';
 import { ProfilePage } from './components/profile/ProfilePage';
 import { useUser }from './components/UseUser'
 import FormCaptureValues from './components/profile/FormCaptureValues';
-import FormExampleCaptureValues from './components/profile/FormExampleCaptureValues';
 
 
 
@@ -23,9 +21,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route exact path='/form' component={FormCaptureValues} />
         <Route exact path='/' component={ HomePage } />
-        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/login" component={FormCaptureValues} />
         <Route exact path="/users/:id" component={ProfilePage} />    
         <Route exact path='/index' component={ImageIndex}/>
         <Route exact path='/show/:id' component={ImageShow}/>
