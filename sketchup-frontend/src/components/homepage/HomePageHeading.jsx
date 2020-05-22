@@ -23,15 +23,18 @@ import {
         '--color-2': 'red',
         background: `
           linear-gradient(
-            170deg,
-            var(--color-1),
-            var(--color-2) 80%
-            
+            to right,
+            red,
+            #f06d06,
+            rgb(255, 255, 0),
+            green
+
           )`,
         color: 'white',
         textAlign: 'center',
         padding: 30,
-        borderRadius: 80
+        borderRadius: 80,
+        textShadow: `3px 4px 7px rgba(81,67,21,0.8)`
           }}
     />
     <Header
@@ -44,7 +47,7 @@ import {
         marginTop: '1.5em',
         marginTop:  '3em',
         textShadow: `3px 4px 7px rgba(81,67,21,0.8)`,
-        
+
         backgroundImage: `
           linear-gradient(
             to left, violet, indigo, blue, green, yellow, orange, red
