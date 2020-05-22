@@ -1,24 +1,31 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 
 export function ImageCard(props){
-
+    let history = useHistory()
     const { image } = props
+
+ 
     return(
         <div className='ui card'>
             <div className='content'>
-            <img class="ui avatar image" src={image.image}></img>
-                <span>{image.user_id}</span>
+                {/* avatar image */}
+                <img 
+                alt='' 
+                className="ui avatar image" 
+                src='https://avatarfiles.alphacoders.com/916/91685.jpg'
+                ></img>
+                <span>{image.user.username}</span>
+                {/* image div */}
                 <div className='header'>
-                    <p>{image.title}</p>
-                    <img alt='' src={image.image}/>
-                    <button 
-                    onClick={() => console.log(image)}
-                    className='button ui green'
-                    >
-                        Show Details
-                    </button>
+                    <h5 className ='ui center aligned header '>{image.title}</h5>
+                    <img 
+                    alt='' 
+                    src={image.image}
+                    onClick={()=> history.push(`/show/${image.id}`)}
+                    />  
                 </div>
             </div>
         </div>
     )
-}
+    }

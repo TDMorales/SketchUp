@@ -1,11 +1,14 @@
 import React from 'react';
-import { ImageIndex } from './components/ImageIndex/ImageIndex'
-import { Showcase } from './components/homepage/Showcase'
+import  {ImageIndex } from './components/ImageIndex/ImageIndex'
+import  {ImageUpload } from './components/ImageUpload/ImageUpload'
+import { ImageShow}  from './components/ImageShow/ImageShow'
+import { BrowserRouter, Route} from 'react-router-dom'
+import { HomePage } from './components/homepage/HomePage'
 import './App.css';
 import { LoginPage } from './components/profile/LoginPage';
-import { BrowserRouter, Route} from 'react-router-dom'
 import { ProfilePage } from './components/profile/ProfilePage';
-import { useUser} from './components/UseUser'
+import { useUser }from './components/UseUser'
+
 
 function App() {
  
@@ -16,17 +19,14 @@ function App() {
   
   return (
     <div className="App">
-      <Showcase />
       <BrowserRouter>
-        {/* <Route exact path="/" component={Showcase} /> */}
-        <Route exact path="/image_index" component={ImageIndex} />
+        <Route exact path='/' component={ HomePage } />
         <Route exact path="/login" component={LoginPage} />
-        {/* wrap in ternary depending on logged in */}
-        
-        <Route exact path="user/:id" component={ProfilePage} />
-      
+        <Route exact path="/users/:id" component={ProfilePage} />    
+        <Route exact path='/index' component={ImageIndex}/>
+        <Route exact path='/show/:id' component={ImageShow}/>
+        <Route exact path='/new' component={ImageUpload}/>
       </BrowserRouter>
-      <footer>SketchUp</footer>
     </div>
   );
 }
