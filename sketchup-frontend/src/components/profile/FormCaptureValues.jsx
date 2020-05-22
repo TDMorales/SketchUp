@@ -1,78 +1,72 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { useState } from 'react'
 import { useHistory, useParams} from 'react-router'
 
-export function FormCaptureValues (props){
+export function FormCaptureValues (props) {
 
-  let history = useHistory()
+  const history = useHistory()
 
   const [user, changeUser] = useState({
     username: '',
     password: ''
-})
+  })
 
-  //validation
-
-  // state = { username: '', password: '', submittedUsername: '', submittedPassword: '' }
-
-  // handleChange = (e, { name, value }) => this.setState({ [name]: value })
-
-
-
-    //Log In Functionality 
-    //username -> Bibi    pass -> 123
-    async function handleLoginSubmit(e){
-      e.preventDefault()
-      let response = await fetch('http://localhost:3000/login', {
-          credentials: 'include',
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-              username: e.target.username.value,
-              password: e.target.password.value
-          })
-      })
-      let { success, id } = await response.json()
-      if(success){
-          history.push(`/users/${id}`)
-          console.log("i am logged in as ", user)
-      }
+  async function handleLoginSubmit(e){
+    e.preventDefault()
+    let response = await fetch('http://localhost:3000/login', {
+        credentials: 'include',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            username: e.target.username.value,
+            password: e.target.password.value
+        })
+    })
+    let { success, id } = await response.json()
+    if(success){
+        history.push(`/users/${id}`)
+    }
   }
 
-
-  
-    // const { username, password, submittedUsername, submittedPassword } = this.state
-
-    return (
-      <div>
-        <Form onSubmit={handleLoginSubmit}>
-          <Form.Group>
+  return (
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='teal' textAlign='center'>
+          <Image src='' /> Log-in to your account
+        </Header>
+        <Form size='large' onSubmit={handleLoginSubmit}>
+          <Segment stacked>
             <Form.Input
-              placeholder='Username'
+              fluid
+              icon='user'
+              iconPosition='left'
               name='username'
-              // value={username}
+              placeholder='Username'
               onChange={(e) => changeUser({...user, username: e.target.value})}
             />
             <Form.Input
-              placeholder='Password'
+              fluid
+              icon='lock'
+              iconPosition='left'
               name='password'
-              // value={password}
-              onChange={(e) => changeUser({...user, password: e.target.value})}
+              placeholder='Password'
+              type='password'
             />
-            <Form.Button content='Submit' />
-          </Form.Group>
+
+            <Button color='teal' fluid size='large'>
+              Login
+            </Button>
+          </Segment>
         </Form>
-        <strong>onChange:</strong>
-        {/* <pre>{JSON.stringify({ username, password }, null, 2)}</pre> */}
-        <strong>onSubmit:</strong>
-        {/* <pre>{JSON.stringify({ submittedUsername, submittedPassword }, null, 2)}</pre> */}
-      </div>
-    )
+        <Message>
+          Don't have an Account?   <a href='#'>Sign Up Here</a>
+        </Message>
+      </Grid.Column>
+    </Grid>
+  )
 }
-
-
-export default FormCaptureValues
