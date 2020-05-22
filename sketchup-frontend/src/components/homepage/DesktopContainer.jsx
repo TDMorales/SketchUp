@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { HomePageHeading } from './HomePageHeading'
+import ImagesButton from './HomePageButtons/ImagesButton'
+
 import {
   Button,
   Container,
@@ -101,12 +103,13 @@ export class DesktopContainer extends Component {
                   as='a' basic color='teal'
                 />
                 
-                <Menu.Item
-                  name='all images'
+                <Menu.Item>
+                  {/* name='all images'
                   active={activeItem === 'all images'}
                   onClick={this.handleItemClick}
-                  as='a' basic color='pink'
-                />
+                  as='a' basic color='pink' */}
+                  <ImagesButton fixed={this.state.fixed}/>
+                </Menu.Item>
                 
                 <Menu.Item position='right'>
                   {/* create login button component and import on line 113 */}
