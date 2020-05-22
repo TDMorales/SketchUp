@@ -2,7 +2,10 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { HomePageHeading } from './HomePageHeading'
 import ImagesButton from './HomePageButtons/ImagesButton'
-
+import SignUp from './HomePageButtons/SignUp'
+import NewReleases from './HomePageButtons/NewReleases'
+import CreateADesign from './HomePageButtons/CreateADesign'
+import Home from './HomePageButtons/Home'
 import {
   Button,
   Container,
@@ -37,24 +40,24 @@ const colors = [
 
 export class DesktopContainer extends Component {
 
-  
+
   // static PropTypes
   static propTypes = {
     color: PropTypes.string,
   }
-  
+
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
+
   hideFixedMenu = () => this.setState({ fixed: false })
   showFixedMenu = () => this.setState({ fixed: true })
-  
+
   render() {
     const { children, color } = this.props
     const { fixed, activeItem } = this.state
-    
-   
+
+
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -75,49 +78,25 @@ export class DesktopContainer extends Component {
               pointing={!fixed}
               secondary={!fixed}
               size='large'
-              color={color} 
-              
+              color={color}
+
             >
               <Container>
-                
-                
-                <Menu.Item
-                  name='home'
-                  active={activeItem === 'home'}
-                  onClick={this.handleItemClick}
-                  as='a' basic color='violet' 
-                  
-                />
-                
-                <Menu.Item
-                  name='create a design'
-                  active={activeItem === 'create a design'}
-                  onClick={this.handleItemClick}
-                  as='a' basic color='olive'
-                />
-                
-                <Menu.Item
-                  name='new releases'
-                  active={activeItem === 'new releases'}
-                  onClick={this.handleItemClick}
-                  as='a' basic color='teal'
-                />
-                
-                <Menu.Item>
-                  {/* name='all images'
-                  active={activeItem === 'all images'}
-                  onClick={this.handleItemClick}
-                  as='a' basic color='pink' */}
-                  <ImagesButton fixed={this.state.fixed}/>
-                </Menu.Item>
-                
+
+                <Home handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
+
+                <CreateADesign handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
+
+                <NewReleases handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
+
+                <ImagesButton handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
+
                 <Menu.Item position='right'>
                   {/* create login button component and import on line 113 */}
                   <LoginButton fixed={this.state.fixed}/>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
+                  <SignUp fixed={this.state.fixed}/>
                 </Menu.Item>
+
               </Container>
             </Menu>
             <HomePageHeading />
