@@ -8,6 +8,9 @@ import './App.css';
 import { LoginPage } from './components/profile/LoginPage';
 import { ProfilePage } from './components/profile/ProfilePage';
 import { useUser }from './components/UseUser'
+import FormCaptureValues from './components/profile/FormCaptureValues';
+import FormExampleCaptureValues from './components/profile/FormExampleCaptureValues';
+
 
 
 function App() {
@@ -20,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Route exact path='/form' component={FormCaptureValues} />
         <Route exact path='/' component={ HomePage } />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/users/:id" component={ProfilePage} />    
