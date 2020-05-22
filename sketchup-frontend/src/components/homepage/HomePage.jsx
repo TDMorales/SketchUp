@@ -10,12 +10,15 @@ import {
   List,
   Segment
 } from 'semantic-ui-react'
-
+import { useHistory} from 'react-router-dom'
 import { ResponsiveContainer } from './ResponsiveContainer'
 import { MultiCarouselPage } from './MultiCarouselPage'
 
-// Showcase
-export const Showcase = () => (
+// HomePage
+export const HomePage = () => {
+ let history = useHistory()
+ console.log(history)
+ return  (
   <ResponsiveContainer>
 
     <Segment style={{ padding: ' 0em', marginRight:  '3em', marginBottom: 0,}} vertical>
@@ -91,3 +94,4 @@ export const Showcase = () => (
     </Segment>
   </ResponsiveContainer>
 )
+ }

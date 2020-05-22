@@ -9,6 +9,8 @@ import {
   Segment,
   Visibility
 } from 'semantic-ui-react'
+import LoginButton from './HomePageButtons/LoginButton'
+
 
 const getWidth = () => {
   const isSSR = typeof window === 'undefined'
@@ -32,6 +34,8 @@ const colors = [
 ]
 
 export class DesktopContainer extends Component {
+
+  
   // static PropTypes
   static propTypes = {
     color: PropTypes.string,
@@ -48,7 +52,8 @@ export class DesktopContainer extends Component {
     const { children, color } = this.props
     const { fixed, activeItem } = this.state
     
-    
+   
+
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility
@@ -104,9 +109,8 @@ export class DesktopContainer extends Component {
                 />
                 
                 <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Log in
-                  </Button>
+                  {/* create login button component and import on line 113 */}
+                  <LoginButton fixed={this.state.fixed}/>
                   <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
                     Sign Up
                   </Button>
