@@ -23,21 +23,21 @@ class UsersController < ApplicationController
     end
 
 
-    # def user_params
-    #     params.permit(:username)
-    # end
+    def user_params
+        params.permit(:username)
+    end
 
-    # def define_current_user
+    def define_current_user
        
-    #     if(params[:id])
-    #         @current_user = User.find(params[:id])
-    #     else
-    #         @current_user = User.new
-    #     end
-    # end
+        if(params[:id])
+            @current_user = User.find(params[:id])
+        else
+            @current_user = User.new
+        end
+    end
  
-    # def current_user
-    #     @current_user
-    # end
+    def current_user
+        @current_user
+    end
 
 end
