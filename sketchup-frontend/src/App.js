@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImageIndex } from './components/ImageIndex/ImageIndex'
 import { Showcase } from './components/homepage/Showcase'
 import './App.css';
 import { LoginPage } from './components/profile/LoginPage';
