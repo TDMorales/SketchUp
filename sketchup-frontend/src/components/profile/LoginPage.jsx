@@ -16,7 +16,7 @@ export function LoginPage(props){
     async function handleLoginSubmit(e){
         e.preventDefault()
         let response = await fetch('http://localhost:3000/login', {
-            // credentials: 'include',
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

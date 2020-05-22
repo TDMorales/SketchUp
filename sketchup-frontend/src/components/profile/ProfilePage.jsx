@@ -42,7 +42,7 @@ export class ProfilePage extends React.Component{
                 <h2>Image Gallery:</h2>
            
                 {this.state.user.images.map( image => 
-                <img src={image.image}/>
+                <img src={image.image}/> 
                 )}
             </div>
         )
