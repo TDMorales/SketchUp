@@ -8,6 +8,7 @@ import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
 import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
+import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/index' component={ImageIndex}/>
         <Route exact path='/show/:id' component={ImageShow}/>
         <Route exact path='/new' component={ImageUpload}/>
+        <Route exact path="/signup" component={CaptureUserAtSignUp} />
       </BrowserRouter>
     </div>
   );

@@ -10,7 +10,6 @@ export default function LoginButton(props){
         <Button 
         as='a' inverted={!props.fixed}
         onClick={
-          // ()=>console.log(history)
           ()=> history.push('/login')
         }
         >
