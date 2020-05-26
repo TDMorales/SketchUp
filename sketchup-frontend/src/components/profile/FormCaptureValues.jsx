@@ -4,7 +4,7 @@ import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-rea
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 
-
+  //log in page
 export function FormCaptureValues (props) {
 
   const history = useHistory()
@@ -31,7 +31,7 @@ export function FormCaptureValues (props) {
     })
     let { success, id } = await response.json()
     if(success){
-        history.push(`/users/${id}`)
+        history.push(`/profile`)
     }else {
         changeUser({
           errorMessage: 'Invalid Username or Password'
@@ -81,7 +81,7 @@ export function FormCaptureValues (props) {
           </Segment>
         </Form>
         <Message>
-          Don't have an Account?   <a href='#'>Sign Up Here</a>
+          Don't have an Account?   <a href='/signUp'>Sign Up Here</a>
         </Message>
       </Grid.Column>
     </Grid>

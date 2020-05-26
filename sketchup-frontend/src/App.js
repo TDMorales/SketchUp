@@ -33,7 +33,6 @@ function App() {
         :
         null
         }
-        <Route exact path="/signUp" component={SignUpPage} />
         <Route exact path='/index' component={ImageIndex}/>
         <Route exact path='/show/:id' component={ImageShow}/>
         <Route exact path='/new' component={ImageUpload}/>
