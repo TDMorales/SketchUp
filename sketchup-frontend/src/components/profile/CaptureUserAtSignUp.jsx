@@ -10,12 +10,13 @@ export function CaptureUserAtSignUp (props) {
 
   const [user, changeUser] = useState({
     username: '',
-    password: ''
+    password: '',
+    errorMessage: ''
   })
 
-  async function handleLoginSubmit(e){
+  function handleLoginSubmit(e){
     e.preventDefault()
-    let response = await fetch('http://localhost:3000/login', {
+    fetch('http://localhost:3000/signUp', {
         credentials: 'include',
         method: 'POST',
         headers: {
@@ -27,13 +28,31 @@ export function CaptureUserAtSignUp (props) {
             password: e.target.password.value
         })
     })
-    let { success, id } = await response.json()
-    if(success){
-        history.push(`/users/${id}`)
-    }
-  }
+    .then(resp => resp.json())
+    .then( newUser => {
+        console.log(newUser)
+        let {success, id } = newUser
+        if(success){
+            history.push(`/profile`)
+        }else{
+            console.log("username taken")
+            changeUser({
+                errorMessage: 'Username Taken'
+            })
+        }
+    })
+}
 
   return (
+    <div>
+      {user.errorMessage.length > 0 ?
+        <div class="ui error message">
+          <div class="header">
+          Someone else already has this username
+        </div>
+        </div>
+        :
+        null}
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
@@ -56,15 +75,17 @@ export function CaptureUserAtSignUp (props) {
               name='password'
               placeholder='Password'
               type='password'
+              onChange={(e) => changeUser({...user, password: e.target.value})}
             />
-            <Form.Input
+            {/* comeback to this as a stretch goal */}
+            {/* <Form.Input
               fluid
               icon='lock'
               iconPosition='left'
               name='password'
               placeholder='Confirm Password'
               type='password'
-            />
+            /> */}
 
             <Button color='teal' fluid size='large'>
               Submit
@@ -72,9 +93,10 @@ export function CaptureUserAtSignUp (props) {
           </Segment>
         </Form>
         <Message>
-          Already have an Account?   <a href='#'>Log in Here</a>
+          Already have an Account?   <a href='/login'>Log in Here</a>
         </Message>
       </Grid.Column>
     </Grid>
+    </div>
   )
 }

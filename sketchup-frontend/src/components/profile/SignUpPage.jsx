@@ -39,7 +39,7 @@ export function SignUpPage (props){
             console.log(newUser)
             let {success, id } = newUser
             if(success){
-                history.push(`/users/${id}`)
+                history.push(`/profile`)
             }else{
                 console.log("username taken")
                 changeUser({
@@ -57,7 +57,6 @@ export function SignUpPage (props){
         <div>
            {user.errorMessage.length > 0 ?
         <div class="ui error message">
-        {/* <i class="close icon"></i> */}
          <div class="header">
          Someone else already has this username
         </div>
@@ -69,13 +68,11 @@ export function SignUpPage (props){
               <Form.Input
                 placeholder='Username'
                 name='username'
-                // value={username}
                 onChange={(e) => changeUser({...user, username: e.target.value})}
               />
               <Form.Input
                 placeholder='Password'
                 name='password'
-                // value={password}
                 onChange={(e) => changeUser({...user, password: e.target.value})}
               />
               <Form.Button content='Submit' />

@@ -9,17 +9,21 @@ export default function ShowUser(props){
     // console.log(currentUser)
     
     return(    
-        
+      <div>
+        {(currentUser.username) ? 
         <Button 
         as='a' inverted={!props.fixed}
         onClick={
            
           
           //redirect to the home page
-          ()=> history.push(`/users/${currentUser.id}`)
+          ()=> history.push(`/profile`)
         }
         >
           {currentUser.username}
         </Button>
+        :
+        null}
+        </div>
     )
 }
