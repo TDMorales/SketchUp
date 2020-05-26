@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import  {ImageIndex } from './components/ImageIndex/ImageIndex'
 import  {ImageUpload } from './components/ImageUpload/ImageUpload'
 import { ImageShow}  from './components/ImageShow/ImageShow'
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import { HomePage } from './components/homepage/HomePage'
 import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
+import SignUpPage from './components/profile/SignUpPage'
+import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
 import FormCaptureValues from './components/profile/FormCaptureValues';
 
@@ -15,15 +17,36 @@ function App() {
  
   //export and import where you need it and make sure the function returns user
 
-  let user = useUser()
+  let currentUser = useUser()
+  console.log(currentUser)
   //pass as a prop or preform in each component
+  // let handleLogout = this.handeleLogout.bind(this)
+
+  // function componentDidMount(){
+  //   this.checkLoginStatus()
+  // }
+
+  // function handleLogout() {
+  //   this.setState({
+  //     loggedInStatus: "NOT_LOGGED_IN",
+  //     user: {}
+  //   })
+  // }
+
+
+  // use users/:id if you want to see other profile pages
   
   return (
     <div className="App">
       <BrowserRouter>
         <Route exact path='/' component={ HomePage } />
         <Route exact path="/login" component={FormCaptureValues} />
-        <Route exact path="/users/:id" component={ProfilePage} />    
+        { currentUser ?
+        <Route exact path='/profile' component={ProfilePage} /> 
+        :
+        null
+        }
+        <Route exact path="/signUp" component={SignUpPage} />
         <Route exact path='/index' component={ImageIndex}/>
         <Route exact path='/show/:id' component={ImageShow}/>
         <Route exact path='/new' component={ImageUpload}/>

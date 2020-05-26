@@ -1,4 +1,3 @@
-
 import React from 'react'
 import {
   Button,
@@ -13,11 +12,14 @@ import {
 import { useHistory} from 'react-router-dom'
 import { ResponsiveContainer } from './ResponsiveContainer'
 import { MultiCarouselPage } from './MultiCarouselPage'
+import { useUser } from '../UseUser'
 
 // HomePage
-export const HomePage = () => {
+export const HomePage = (props) => {
  let history = useHistory()
- console.log(history)
+//  console.log(history)
+ //defines a variable that references the current logged in user
+ let currentUser = useUser()
  return  (
   <ResponsiveContainer>
 
@@ -44,7 +46,7 @@ export const HomePage = () => {
           horizontal
           style={{ margin: '3em 0em', textTransform: 'uppercase' }}
         >
-          <a href='#'>Don't Have An Account Yet?</a>
+          <a href='#'>Don't Have An Account Yet?{props.user}</a>
         </Divider>
         <Header as='h3' style={{ fontSize: '2em' }}>
           Wait no longer
