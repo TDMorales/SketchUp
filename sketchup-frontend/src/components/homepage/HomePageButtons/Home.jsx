@@ -11,7 +11,7 @@ export default function Home (props){
       onClick={props.handleItemClick}
       as='a' basic color='violet'
       onClick={
-        ()=> history.push('/index')
+        ()=> history.push('/')
       }
 
     />
