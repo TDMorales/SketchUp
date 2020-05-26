@@ -17,7 +17,7 @@ import { useUser } from '../UseUser'
 // HomePage
 export const HomePage = (props) => {
  let history = useHistory()
-//  console.log(history)
+//  console.log(props.currentUser)
  //defines a variable that references the current logged in user
  let currentUser = useUser()
  return  (

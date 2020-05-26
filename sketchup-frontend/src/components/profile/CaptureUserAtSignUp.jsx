@@ -34,6 +34,10 @@ export function CaptureUserAtSignUp (props) {
         let {success, id } = newUser
         if(success){
             history.push(`/profile`)
+            props.setUser({
+              username: user.username,
+              password: user.password
+            })
         }else{
             console.log("username taken")
             changeUser({

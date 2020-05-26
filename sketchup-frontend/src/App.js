@@ -11,32 +11,35 @@ import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
-
+import { NavBar } from './components/homepage/NavBar'
 
 
 function App() {
 
   //export and import where you need it and make sure the function returns user
 
-  let currentUser = useUser()
-  console.log(currentUser)
+  let [currentUser, setUser] = useUser()
+
   //pass as a prop or preform in each component
 
   return (
+    console.log(currentUser.images),
     <div className="App">
       <BrowserRouter>
-        <Route exact path='/' component={ HomePage } />
-        <Route exact path="/login" component={FormCaptureValues} />
+      <NavBar currentUser={currentUser} setUser={setUser}/>
+        <Route exact path='/' component={ HomePage } currentUser={currentUser}/>
+        <Route exact path="/login" component={() => <FormCaptureValues setUser={setUser}/>} />
 
         { currentUser ?
-        <Route exact path='/profile' component={ProfilePage} /> 
+        <Route exact path='/profile' component={() => <ProfilePage currentUser={currentUser}/> } /> 
         :
         null
         }
-        <Route exact path='/index' component={ImageIndex}/>
-        <Route exact path='/show/:id' component={ImageShow}/>
-        <Route exact path='/new' component={ImageUpload}/>
-        <Route exact path="/signup" component={CaptureUserAtSignUp} />
+        <Route exact path='/index' component={() => <ImageIndex currentUser={currentUser}/> } />
+        {/* <Route exact path="/show/:id" component={ImageShow} /> */}
+        <Route exact path='/show/:id' component={() => <ImageShow currentUser={currentUser} /> } />
+        <Route exact path='/new' component={() => <ImageUpload currentUser={currentUser} /> } />
+        <Route exact path="/signup" component={() => <CaptureUserAtSignUp setUser={setUser} /> } />
       </BrowserRouter>
     </div>
   );

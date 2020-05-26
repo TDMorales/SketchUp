@@ -5,6 +5,11 @@ class ImagesController < ApplicationController
         render(json: images, include: [:user])
     end
 
+    def show
+        image = Image.find(params[:id])
+        render(json: image, include: :user)
+    end
+
     # def create
     #     image = Image.create (
     #         title: params[:title],

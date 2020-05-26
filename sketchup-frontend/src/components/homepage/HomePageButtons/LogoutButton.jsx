@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Button } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
@@ -6,8 +6,7 @@ import { useUser } from '../../UseUser'
 
 export default function LogOutButton(props){
      let history = useHistory()
-     let currentUser = useUser()
-   
+     let currentUser = props.currentUser  
 
      //post request to the backend to the logout function
      //this resets the session of the user to null 
@@ -24,7 +23,11 @@ export default function LogOutButton(props){
           })
           .then(resp => resp.json())
           .then( response => {
-              console.log("this is my post request response", response)
+              // console.log("this is my post request response", response)
+              props.setUser({
+                username: undefined,
+                password: undefined
+              })
           })
         }
     

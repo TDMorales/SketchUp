@@ -4,7 +4,7 @@ import { DesktopContainer } from './DesktopContainer'
 
 export const ResponsiveContainer = ({ children }) => {
   return(
-    console.log(children.history),
+    // console.log(children.history),
   <div>
     <DesktopContainer>{children}</DesktopContainer>
   </div>
