@@ -59392,3 +59392,154 @@ Processing by UsersController#get_user as */*
 Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 1832)
 
 
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:17 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 30ms (Views: 9.4ms | ActiveRecord: 1.4ms | Allocations: 10189)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:17 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1837)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:17 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1837)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:17 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1837)
+
+
+Started POST "/logout" for ::1 at 2020-05-26 10:34:23 -0500
+Processing by AuthenticationController#logout as JSON
+  Parameters: {"authentication"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 268)
+
+
+Started POST "/login" for ::1 at 2020-05-26 10:34:27 -0500
+Processing by AuthenticationController#login as JSON
+  Parameters: {"username"=>"Bibi", "password"=>"[FILTERED]", "authentication"=>{"username"=>"Bibi", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Bibi"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 212ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 963)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:37 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 6035)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:37 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1991)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:37 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1991)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:37 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1991)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:43 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2004)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:43 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1987)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:50 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1989)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:54 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2003)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:54 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1990)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:54 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1990)
+
+
+Started GET "/get_user" for ::1 at 2020-05-26 10:34:54 -0500
+Processing by UsersController#get_user as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `get_user'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `get_user'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1990)
+
+
