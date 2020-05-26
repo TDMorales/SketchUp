@@ -24,30 +24,11 @@ const getWidth = (props) => {
   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'teal',
-  'blue',
-  'violet',
-  'purple',
-  'pink',
-  'brown',
-  'grey',
-  'black',
-]
-
 export class DesktopContainer extends Component {
 
-  
 
-  // static PropTypes
-  static propTypes = {
-    color: PropTypes.string,
-  }
+
+
 
   state = { activeItem: 'home' }
           
@@ -58,9 +39,9 @@ export class DesktopContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true })
 
   render() {
-    const { children, color } = this.props
+    const { children } = this.props
     const { fixed, activeItem } = this.state
-   
+
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility
@@ -80,7 +61,6 @@ export class DesktopContainer extends Component {
               pointing={!fixed}
               secondary={!fixed}
               size='large'
-              color={color}
 
             >
               <Container>

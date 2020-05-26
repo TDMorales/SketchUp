@@ -9,38 +9,25 @@ import { ProfilePage } from './components/profile/ProfilePage';
 import SignUpPage from './components/profile/SignUpPage'
 import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
-import FormCaptureValues from './components/profile/FormCaptureValues';
+import {FormCaptureValues} from './components/profile/FormCaptureValues';
+import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
 
 
 
 function App() {
- 
+
   //export and import where you need it and make sure the function returns user
 
   let currentUser = useUser()
   console.log(currentUser)
   //pass as a prop or preform in each component
-  // let handleLogout = this.handeleLogout.bind(this)
 
-  // function componentDidMount(){
-  //   this.checkLoginStatus()
-  // }
-
-  // function handleLogout() {
-  //   this.setState({
-  //     loggedInStatus: "NOT_LOGGED_IN",
-  //     user: {}
-  //   })
-  // }
-
-
-  // use users/:id if you want to see other profile pages
-  
   return (
     <div className="App">
       <BrowserRouter>
         <Route exact path='/' component={ HomePage } />
         <Route exact path="/login" component={FormCaptureValues} />
+
         { currentUser ?
         <Route exact path='/profile' component={ProfilePage} /> 
         :
@@ -50,6 +37,7 @@ function App() {
         <Route exact path='/index' component={ImageIndex}/>
         <Route exact path='/show/:id' component={ImageShow}/>
         <Route exact path='/new' component={ImageUpload}/>
+        <Route exact path="/signup" component={CaptureUserAtSignUp} />
       </BrowserRouter>
     </div>
   );
