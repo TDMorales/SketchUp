@@ -15,16 +15,23 @@ import {
   Visibility
 } from 'semantic-ui-react'
 import LoginButton from './HomePageButtons/LoginButton'
+import LogOutButton from './HomePageButtons/LogoutButton'
+import ShowUser from './HomePageButtons/ShowUser'
+import { useUser } from '../UseUser'
 
-
-const getWidth = () => {
+const getWidth = (props) => {
   const isSSR = typeof window === 'undefined'
   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }
 
 export class DesktopContainer extends Component {
 
+
+
+
+
   state = { activeItem: 'home' }
+          
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -68,7 +75,12 @@ export class DesktopContainer extends Component {
 
                 <Menu.Item position='right'>
                   {/* create login button component and import on line 113 */}
+                  {/* render logic to show Login or LogOut depending on
+                  user login status */}
+                  {/* could do a fetch */}
+                  <ShowUser fixed={this.state.fixed} />
                   <LoginButton fixed={this.state.fixed}/>
+                  <LogOutButton fixed={this.state.fixed}/>
                   <SignUp fixed={this.state.fixed}/>
                 </Menu.Item>
 

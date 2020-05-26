@@ -5,4 +5,8 @@ class ApplicationController < ActionController::API
         User.find(session[:id])
     end
 
+    def logout 
+        session.clear
+    end
+
 end

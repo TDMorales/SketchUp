@@ -2,7 +2,8 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { useState } from 'react'
-import { useHistory, useParams} from 'react-router'
+import { useHistory } from 'react-router'
+
 
 export function FormCaptureValues (props) {
 
@@ -10,7 +11,8 @@ export function FormCaptureValues (props) {
 
   const [user, changeUser] = useState({
     username: '',
-    password: ''
+    password: '',
+    errorMessage: ''
   })
 
   async function handleLoginSubmit(e){
@@ -30,10 +32,24 @@ export function FormCaptureValues (props) {
     let { success, id } = await response.json()
     if(success){
         history.push(`/users/${id}`)
-    }
+    }else {
+        changeUser({
+          errorMessage: 'Invalid Username or Password'
+        })
+        //render an error message to the front end
+      }
   }
 
   return (
+    <div>
+      {user.errorMessage.length > 0 ?
+        <div class="ui error message">
+         <div class="header">
+         You entered an invalid username or password
+        </div>
+      </div>
+       :
+       null}
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
@@ -41,6 +57,7 @@ export function FormCaptureValues (props) {
         </Header>
         <Form size='large' onSubmit={handleLoginSubmit}>
           <Segment stacked>
+
             <Form.Input
               fluid
               icon='user'
@@ -68,5 +85,7 @@ export function FormCaptureValues (props) {
         </Message>
       </Grid.Column>
     </Grid>
+   </div>
   )
+
 }

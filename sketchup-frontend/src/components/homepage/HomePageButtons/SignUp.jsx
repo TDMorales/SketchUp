@@ -10,7 +10,9 @@ export default function SignUp (props){
         <Button
         as='a' inverted={!props.fixed}
         onClick={
+
           ()=> history.push('/signup')
+
         }
         >
           Sign Up
