@@ -10,7 +10,7 @@ export default function CreateADesign (props){
       onClick={props.handleItemClick}
       as='a' basic color='olive'
       onClick={
-        ()=> history.push('/index')
+        ()=> history.push('/create-a-design')
       }
     />
   )

@@ -12,6 +12,7 @@ import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
 import { NavBar } from './components/HomePage/NavBar'
+import { SketchPad } from './components/SketchPad/SketchPad'
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route exact path='/show/:id' component={() => <ImageShow currentUser={currentUser} /> } />
         <Route exact path='/new' component={() => <ImageUpload currentUser={currentUser} /> } />
         <Route exact path="/signup" component={() => <CaptureUserAtSignUp setUser={setUser} /> } />
+        <Route exact path='/create-a-design' component={ SketchPad }/>
       </BrowserRouter>
     </div>
   );
