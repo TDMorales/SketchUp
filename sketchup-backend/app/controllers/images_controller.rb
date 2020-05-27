@@ -2,7 +2,8 @@ class ImagesController < ApplicationController
 
     def index
         images = Image.all 
-        render(json: images, include: [:user])
+        render(json: images, :methods => :url, include: [:user])
+
     end
 
     def create
@@ -12,9 +13,11 @@ class ImagesController < ApplicationController
             user_id: current_user.id
         )
     end 
+
     def show
         image = Image.find(params[:id])
-        render(json: image, include: :user)
+        # render(json: image, include: :user)
+        render(json: image, :methods => :url, include: [:user])
     end
 
     # def create
