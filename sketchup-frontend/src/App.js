@@ -3,7 +3,7 @@ import  {ImageIndex } from './components/ImageIndex/ImageIndex'
 import  ImageUpload  from './components/ImageUpload/ImageUpload'
 import { ImageShow}  from './components/ImageShow/ImageShow'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import { HomePage } from './components/homepage/HomePage'
+import { HomePage } from './components/HomePage/HomePage'
 import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
 import SignUpPage from './components/profile/SignUpPage'
@@ -11,7 +11,7 @@ import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
-import { NavBar } from './components/homepage/NavBar'
+import { NavBar } from './components/HomePage/NavBar'
 
 
 function App() {
@@ -21,10 +21,11 @@ function App() {
   let [currentUser, setUser] = useUser()
 
   //pass as a prop or preform in each component
-
+  
   return (
-    console.log(currentUser.images),
+    
     <div className="App">
+      
       <BrowserRouter>
       <NavBar currentUser={currentUser} setUser={setUser}/>
         <Route exact path='/' component={ HomePage } currentUser={currentUser}/>

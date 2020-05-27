@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router'
 import { UploadButton } from './ProfileButtons/UploadButton'
 
+
 export function ProfilePage(props){
   //update user and his / her images here so profile page refreshes
     let history = useHistory()
@@ -13,13 +14,15 @@ export function ProfilePage(props){
     if(currentUser.username === undefined){
         currentUser = {username: "default", password: "password", images: []}
     }
-    console.log(currentUser.images)
+
+  
+
     return (
+        console.log(currentUser.images),
          <div style={{background:"lightgray"}}>
                 <h1>Welcome</h1>
                 <div class="ui massive violet label">{currentUser.username}</div>
                 <h2>Image Gallery:</h2>
-                {/* <img src={currentUser.images[5]}/> */}
                 {(currentUser.images != []) ? 
                 currentUser.images.map( image => 
                 <div class="ui card" class="ui segment" >
@@ -29,7 +32,8 @@ export function ProfilePage(props){
                 :
                 null}
                 <UploadButton />
-            </div>
+                
+          </div>
         )
     
 }
