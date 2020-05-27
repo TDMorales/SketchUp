@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     def get_user 
         user = User.find(session[:user_id])
-        render(json: user, include: :images)
+        render(json: user, include: {images: {methods: :url}})
     end
 
 
