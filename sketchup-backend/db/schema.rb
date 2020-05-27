@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_193444) do
   create_table "images", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
+    t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
