@@ -22,6 +22,7 @@ export function ImageCard(props){
                     <img 
                     alt='' 
                     src={image.url}
+                    class="ui fluid image"
                     onClick={()=> history.push(`/show/${image.id}`)}
                     />  
                 </div>
