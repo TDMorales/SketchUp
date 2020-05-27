@@ -5,8 +5,7 @@ import { useUser } from '../../UseUser'
 
 export default function ShowUser(props){
     let history = useHistory()
-    let currentUser = useUser()
-    // console.log(currentUser)
+    let currentUser = props.currentUser
     
     return(    
       <div>
@@ -14,8 +13,6 @@ export default function ShowUser(props){
         <Button 
         as='a' inverted={!props.fixed}
         onClick={
-           
-          
           //redirect to the home page
           ()=> history.push(`/profile`)
         }

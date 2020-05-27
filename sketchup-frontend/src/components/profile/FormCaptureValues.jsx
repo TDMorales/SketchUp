@@ -3,12 +3,13 @@ import { Form } from 'semantic-ui-react'
 import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { useState } from 'react'
 import { useHistory } from 'react-router'
+import { useUser } from '../UseUser'
 
   //log in page
 export function FormCaptureValues (props) {
 
   const history = useHistory()
-
+  // let {user, currentUser} = useUser()
   const [user, changeUser] = useState({
     username: '',
     password: '',
@@ -29,9 +30,17 @@ export function FormCaptureValues (props) {
             password: e.target.password.value
         })
     })
-    let { success, id } = await response.json()
+    let { user, success, id, images } = await response.json()
     if(success){
         history.push(`/profile`)
+        //user and images are separate for some reason
+        //invoke 
+        props.setUser({
+          // could use ... operator her 
+          username: user.username,
+          password: user.password,
+          images: images
+        }) 
     }else {
         changeUser({
           errorMessage: 'Invalid Username or Password'

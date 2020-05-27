@@ -63,28 +63,7 @@ export class DesktopContainer extends Component {
               size='large'
 
             >
-              <Container>
-
-                <Home handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
-
-                <CreateADesign handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
-
-                <NewReleases handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
-
-                <ImagesButton handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
-
-                <Menu.Item position='right'>
-                  {/* create login button component and import on line 113 */}
-                  {/* render logic to show Login or LogOut depending on
-                  user login status */}
-                  {/* could do a fetch */}
-                  <ShowUser fixed={this.state.fixed} />
-                  <LoginButton fixed={this.state.fixed}/>
-                  <LogOutButton fixed={this.state.fixed}/>
-                  <SignUp fixed={this.state.fixed}/>
-                </Menu.Item>
-
-              </Container>
+              
             </Menu>
             <HomePageHeading />
           </Segment>

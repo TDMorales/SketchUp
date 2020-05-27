@@ -5,7 +5,7 @@ import { useUser } from '../../UseUser'
 
 export default function SignUp (props){
      let history = useHistory()
-     let currentUser = useUser()
+     let currentUser = props.currentUser
 
     return(
       <div>

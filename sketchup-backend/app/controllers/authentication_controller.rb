@@ -8,9 +8,10 @@ class AuthenticationController < ApplicationController
             # set the current user to the user we logged in
             session[:user_id] = user.id
             # return the appropriate user
-            render json: { success: true, id: user.id }
+            render json: { user: user, success: true, id: user.id, images: user.images }
+           
         else
-            render json: { success: false, id: nil }
+            render json: {  success: false, id: nil }
         end
     end
 

@@ -19,5 +19,5 @@ export function useUser() {
           setUser(user)
       })
     }, [] )
-    return user
+    return [user, setUser]
   }

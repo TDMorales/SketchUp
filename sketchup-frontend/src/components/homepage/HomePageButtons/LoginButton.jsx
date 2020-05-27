@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 import { useUser } from '../../UseUser'
 
 export default function LoginButton(props){
     let history = useHistory()
-    let currentUser = useUser()
-
+    // let [currentUser, setUser] = useUser()
+    let currentUser = props.currentUser
+   
     return(    
       <div>
       {(!currentUser.username) ? 
