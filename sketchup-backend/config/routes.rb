@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options :host => 'localhost:3000'
 
   resources :images
   resources :users, only: [:create, :show, :index]
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
 
   post('/signUp', to: 'authentication#signUp')
   get('/signUp', to: 'authentication#signUp')
+
+  post('/images/create', to: 'images#create')
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
