@@ -21,7 +21,7 @@ export function ImageCard(props){
                     <h5 className ='ui center aligned header '>{image.title}</h5>
                     <img 
                     alt='' 
-                    src={image.image}
+                    src={image.url}
                     onClick={()=> history.push(`/show/${image.id}`)}
                     />  
                 </div>

@@ -3,7 +3,7 @@ import  {ImageIndex } from './components/ImageIndex/ImageIndex'
 import  ImageUpload  from './components/ImageUpload/ImageUpload'
 import { ImageShow}  from './components/ImageShow/ImageShow'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import { HomePage } from './components/HomePage/HomePage'
+import { HomePage } from './components/homepage/HomePage'
 import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
 import SignUpPage from './components/profile/SignUpPage'

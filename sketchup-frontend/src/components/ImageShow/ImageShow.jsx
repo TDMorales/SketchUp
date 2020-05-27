@@ -28,9 +28,10 @@ export function ImageShow(props){
 
     //check for undefined image AND undefined image.user
     if(image === undefined || image.user === undefined){
-        image = {title: "default",image: "default", user: {username: "default", password: "default"}}
+        image = {title: "default", url: "default", user: {username: "default", password: "default"}}
     }
     return (
+        console.log(image.image),
          <div className="ui card fluid">
             <div className="content">
                 <div className="header">{image.title}</div>
@@ -40,7 +41,7 @@ export function ImageShow(props){
                 <span>{image.user.username}</span>
                 <div className='header'>
                     <p>{image.title}</p>
-                    <img alt='' src={image.image}/>
+                    <img alt='' src={image.url}/>
                 </div>
             </div>
             <div className="content">
