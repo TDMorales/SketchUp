@@ -20,6 +20,11 @@ class ImagesController < ApplicationController
         render(json: image, :methods => :url, include: [:user])
     end
 
+    def destroy
+        image = Image.find(params[:id])
+        image.delete
+    end
+
     # def create
     #     image = Image.create (
     #         title: params[:title],

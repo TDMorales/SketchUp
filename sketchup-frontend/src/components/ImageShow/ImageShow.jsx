@@ -30,18 +30,22 @@ export function ImageShow(props){
     if(image === undefined || image.user === undefined){
         image = {title: "default", url: "default", user: {username: "default", password: "default"}}
     }
+    //hardcode the size of the containers and make the image fluid
     return (
         console.log(image.image),
-         <div className="ui card fluid">
+        //  <div className="ui card" >
+        <div >
             <div className="content">
-                <div className="header">{image.title}</div>
+                <div className="header"></div>
             </div>
             <div className="content">
             <img alt='' class="ui avatar image" src='https://avatarfiles.alphacoders.com/916/91685.jpg'></img>
-                <span>{image.user.username}</span>
-                <div className='header'>
+                <h2>{image.user.username}</h2>
+                <div className='header' >
                     <p>{image.title}</p>
-                    <img alt='' src={image.url}/>
+                    <img alt='' src={image.url}
+                        class="ui big centered image"
+                    />
                 </div>
             </div>
             <div className="content">
