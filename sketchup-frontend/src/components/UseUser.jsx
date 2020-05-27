@@ -8,6 +8,7 @@ import React, {useState, useEffect} from 'react'
 export function useUser() {
   //define user variable and a setUser set state function
     let [user, setUser] = useState({})
+    // let [images, setImages] = useState({})
   
     //fetch request to users
     useEffect( () => {
@@ -16,9 +17,13 @@ export function useUser() {
     })
       .then(resp => resp.json())
       .then( user => {
-          setUser(user)
           console.log(user)
+          setUser(user)
+          // images = user.images
+          // setImages(images)
       })
     }, [] )
-    return [user, setUser]
+    return ( [user, setUser] 
+      // [images, setImages] 
+      )
   }

@@ -10,7 +10,12 @@ class AuthenticationController < ApplicationController
             # set the current user to the user we logged in
             session[:user_id] = user.id
             # return the appropriate user
+<<<<<<< HEAD
             render json: { user: user, success: true, id: user.id, images: images}
+=======
+            render json: { user: user, success: true, id: user.id, images: images.as_json({ methods: [ :url ]}), :methods => :url, include: [:user] }
+           
+>>>>>>> 62c862fac29eb1efc5ce2979ef3a942d322f42b5
         else
             render json: {  success: false, id: nil }
         end
