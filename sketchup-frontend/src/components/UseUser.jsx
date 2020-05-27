@@ -17,6 +17,7 @@ export function useUser() {
       .then(resp => resp.json())
       .then( user => {
           setUser(user)
+          console.log(user)
       })
     }, [] )
     return [user, setUser]

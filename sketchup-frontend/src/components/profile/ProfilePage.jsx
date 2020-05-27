@@ -9,27 +9,27 @@ export function ProfilePage(props){
     let history = useHistory()
    
     let currentUser = props.currentUser
-
-    if(currentUser.username === undefined){
+    
+    if(currentUser.username === undefined ){
         currentUser = {username: "default", password: "password", images: []}
     }
-    console.log(currentUser.images)
+    // console.log(currentUser.images)
     return (
          <div style={{background:"lightgray"}}>
-                <h1>Welcome</h1>
-                <div class="ui massive violet label">{currentUser.username}</div>
+            <h1>Welcome</h1>
+              <div class="ui massive violet label">{currentUser.username}</div>
                 <h2>Image Gallery:</h2>
                 {/* <img src={currentUser.images[5]}/> */}
                 {(currentUser.images != []) ? 
                 currentUser.images.map( image => 
-                <div class="ui card" class="ui segment" >
-                  <img onClick={() => history.push(`/show/${image.id}`)} src={image.url} class="ui fluid image" class="ui medium centered image" />  
-                </div>
-                )
-                :
-                null}
-                <UploadButton />
-            </div>
+              <div class="ui card" class="ui segment" >
+                <img onClick={() => history.push(`/show/${image.id}`)} src={image.url} class="ui fluid image" class="ui medium centered image" />  
+              </div>
+              )
+              :
+              null}
+              <UploadButton />
+          </div>
         )
     
 }

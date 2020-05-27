@@ -4,12 +4,13 @@ class AuthenticationController < ApplicationController
         # check to see if the username is in our date base
         # AND if the user password is correct
         user = User.find_by({ username: params[:username]})
+        images = user.images
         if(user && user.authenticate(params[:password]))
+            # byebug
             # set the current user to the user we logged in
             session[:user_id] = user.id
             # return the appropriate user
-            render json: { user: user, success: true, id: user.id, images: user.images }
-           
+            render json: { user: user, success: true, id: user.id, images: images}
         else
             render json: {  success: false, id: nil }
         end

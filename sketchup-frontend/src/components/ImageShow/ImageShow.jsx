@@ -32,7 +32,6 @@ export function ImageShow(props){
     }
     //hardcode the size of the containers and make the image fluid
     return (
-        console.log(image.image),
         //  <div className="ui card" >
         <div >
             <div className="content">

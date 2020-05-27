@@ -19,11 +19,11 @@ function App() {
   //export and import where you need it and make sure the function returns user
 
   let [currentUser, setUser] = useUser()
+  console.log(currentUser)
 
   //pass as a prop or preform in each component
 
   return (
-    console.log(currentUser.images),
     <div className="App">
       <BrowserRouter>
       <NavBar currentUser={currentUser} setUser={setUser}/>
