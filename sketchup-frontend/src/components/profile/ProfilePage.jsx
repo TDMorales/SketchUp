@@ -15,20 +15,20 @@ export function ProfilePage(props){
     }
     console.log(currentUser.images)
     return (
-         <div>
-            <UploadButton />
+         <div style={{background:"lightgray"}}>
                 <h1>Welcome</h1>
-                <h1>{currentUser.username }</h1>
+                <div class="ui massive violet label">{currentUser.username}</div>
                 <h2>Image Gallery:</h2>
-                <img src={currentUser.images[5]}/>
+                {/* <img src={currentUser.images[5]}/> */}
                 {(currentUser.images != []) ? 
                 currentUser.images.map( image => 
-                <div class="ui card" class="ui segment">
+                <div class="ui card" class="ui segment" >
                   <img onClick={() => history.push(`/show/${image.id}`)} src={image.url} class="ui fluid image" class="ui medium centered image" />  
                 </div>
                 )
                 :
                 null}
+                <UploadButton />
             </div>
         )
     

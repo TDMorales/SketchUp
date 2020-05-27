@@ -36,11 +36,11 @@ export function ImageShow(props){
         //  <div className="ui card" >
         <div >
             <div className="content">
-                <div className="header">{image.title}</div>
+                <div className="header"></div>
             </div>
             <div className="content">
             <img alt='' class="ui avatar image" src='https://avatarfiles.alphacoders.com/916/91685.jpg'></img>
-                <span>{image.user.username}</span>
+                <h2>{image.user.username}</h2>
                 <div className='header' >
                     <p>{image.title}</p>
                     <img alt='' src={image.url}
