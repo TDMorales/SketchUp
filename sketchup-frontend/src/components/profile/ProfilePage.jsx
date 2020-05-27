@@ -2,17 +2,18 @@ import React, { useEffect } from 'react'
 import { useUser }from '../UseUser'
 import { useState } from 'react'
 import { useHistory } from 'react-router'
+import { UploadButton } from './ProfileButtons/UploadButton'
 
 export function ProfilePage(props){
 
     let history = useHistory()
-    // console.log(props.currentUser)
+   
     let currentUser = props.currentUser
 
     if(currentUser.username === undefined){
         currentUser = {username: "default", password: "password", images: []}
-        console.log(currentUser)
     }
+    console.log(currentUser)
     return (
         //finish profile page and active storage in rails
         <div class="ui card">
