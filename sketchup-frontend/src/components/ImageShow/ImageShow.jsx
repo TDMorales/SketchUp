@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router'
+import { LikeButton } from './LikeButton'
 
 export function ImageShow(props){
     let [ image, setImage ] = useState({})
     let history = useHistory()
-
-    //fix so likes don't refresh on each page refresh
-    const [likes, addLikes] = useState({
-        likes: 0
-      })
 
     let params = useParams()
     // console.log(props)
@@ -31,35 +27,30 @@ export function ImageShow(props){
             })
     }
 
-    const handleLikes = () => {
-       
+    const handleLikes = (likes) => {
+        console.log(likes)
         fetch(`http://localhost:3000/images/${selectedImage}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
-                likes: likes.likes += 1
+                likes: likes
             })
         })
-        .then(resp => resp.json())
-        .then( obj => {
-            console.log(obj)
-            addLikes({
-                likes: obj.likes
-            })
-        })
+      
     } 
 
 
     //check for undefined image AND undefined image.user
     if(image === undefined || image.user === undefined){
-        image = {title: "default", url: "default", user: {username: "default", password: "default"}}
+        image = {title: "default", url: "default", likes: 0, user: {username: "default", password: "default"}}
     }
     //hardcode the size of the containers and make the image fluid
     return (
         //  <div className="ui card" >
-        console.log(image.likes),    
+        // console.log(image.likes),    
         <div >
             <div className="content">
                 <div className="header"></div>
@@ -73,7 +64,8 @@ export function ImageShow(props){
                         class="ui big centered image"
                     />
                 </div>
-                <button className="ui blue button" onClick={handleLikes}>Likes: {likes.likes}</button>
+                {/* <button className="ui blue button" onClick={handleLikes}>Likes: {image.likes}</button> */}
+                <LikeButton handleLikes={handleLikes} likes={image.likes}  />
             </div>
             <div className="content">
                 <button className="ui red button" onClick={handleDelete}>Delete</button>

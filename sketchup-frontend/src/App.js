@@ -12,7 +12,7 @@ import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
 
-import { NavBar } from './components/HomePage/NavBar'
+import { NavBar } from './components/homepage/NavBar'
 import { SketchPad } from './components/SketchPad/SketchPad'
 
 
@@ -22,7 +22,6 @@ function App() {
   //export and import where you need it and make sure the function returns user
 
   let [currentUser, setUser] = useUser()
-  console.log(currentUser)
 
   //pass as a prop or preform in each component
   

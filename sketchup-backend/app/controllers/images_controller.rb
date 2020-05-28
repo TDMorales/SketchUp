@@ -10,7 +10,8 @@ class ImagesController < ApplicationController
         image = Image.create(
             title: params[:newImageTitle],
             image: params[:newImage],
-            user_id: current_user.id
+            user_id: current_user.id,
+            likes: 1
         )
     end 
 
@@ -26,6 +27,7 @@ class ImagesController < ApplicationController
     end
 
     def update 
+        # byebug
         image = Image.find(params[:id])
         image.update({
             likes: params[:likes]

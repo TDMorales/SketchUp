@@ -17,7 +17,6 @@ export function useUser() {
     })
       .then(resp => resp.json())
       .then( user => {
-          console.log(user)
           setUser(user)
           // images = user.images
           // setImages(images)
