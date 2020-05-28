@@ -10,7 +10,8 @@ class ImagesController < ApplicationController
         image = Image.create(
             title: params[:newImageTitle],
             image: params[:newImage],
-            user_id: current_user.id
+            user_id: current_user.id,
+            likes: 0
         )
     end 
 
