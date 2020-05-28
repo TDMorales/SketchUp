@@ -25,6 +25,14 @@ class ImagesController < ApplicationController
         image.delete
     end
 
+    def update 
+        image = Image.find(params[:id])
+        image.update({
+            likes: params[:likes]
+        })
+        render(json:image)
+    end
+
     # def create
     #     image = Image.create (
     #         title: params[:title],
