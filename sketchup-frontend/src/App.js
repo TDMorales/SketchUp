@@ -11,8 +11,7 @@ import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
-
-import { NavBar } from './components/HomePage/NavBar'
+import { NavBar } from './components/homepage/NavBar'
 import { SketchPad } from './components/SketchPad/SketchPad'
 
 
