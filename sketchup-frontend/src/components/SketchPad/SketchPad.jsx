@@ -10,7 +10,7 @@ import { addLine } from "./Pencil";
 import { addTextNode } from "./textNode";
 import Image from "./Image";
 import { v1 as uuidv1 } from 'uuid';
-
+import { select } from 'semantic-ui-react'
 
 export function SketchPad () {
   const [rectangles, setRectangles] = useState([]);
@@ -18,6 +18,7 @@ export function SketchPad () {
   const [images, setImages] = useState([]);
   const [selectedId, selectShape] = useState(null);
   const [shapes, setShapes] = useState([]);
+  const [color, setColor] = useState(['black']);
   const [, updateState] = React.useState();
   const stageEl = React.createRef();
   const layerEl = React.createRef();
@@ -26,17 +27,15 @@ export function SketchPad () {
     return Math.floor(Math.random() * Math.floor(max));
   };
 
-
   const addRectangle = () => {
     const rect = {
       x: getRandomInt(100),
       y: getRandomInt(100),
       width: 100,
       height: 100,
-      fill: "red",
+      fill: color,
       id: `rect${rectangles.length + 1}`,
     };
-
 
     const rects = rectangles.concat([rect]);
     setRectangles(rects);
@@ -44,14 +43,13 @@ export function SketchPad () {
     setShapes(shs);
   };
 
-
   const addCircle = () => {
     const circ = {
       x: getRandomInt(100),
       y: getRandomInt(100),
       width: 100,
       height: 100,
-      fill: "red",
+      fill: color,
       id: `circ${circles.length + 1}`,
     };
 
@@ -63,8 +61,8 @@ export function SketchPad () {
   };
 
 
-const drawLine = () => {
-    addLine(stageEl.current.getStage(), layerEl.current);
+const drawLine = (colors) => {
+    addLine(stageEl.current.getStage(), layerEl.current, colors);
   };
 
 
@@ -154,17 +152,29 @@ const drawLine = () => {
       forceUpdate();
     }
   });
+
+
+
   return (
     <div className="sketch-pad">
       <h1>SketchBoard</h1>
       <ButtonGroup>
+      <select variant='secondary' onChange={(e)=>{
+          setColor(e.target.value)
+          drawLine(e.target.value)
+        }}>
+            <option value='black'>black</option>
+            <option value='red'>red</option>
+            <option value='green'>green</option>
+            <option value='blue'>blue</option>
+        </select>
         <Button variant="secondary" onClick={addRectangle}>
           Rectangle
         </Button>
         <Button variant="secondary" onClick={addCircle}>
           Circle
         </Button>
-        <Button variant="secondary" onClick={drawLine}>
+        <Button variant="secondary" onClick={()=>drawLine(color)}>
           Pencil
         </Button>
         <Button variant="secondary" onClick={eraseLine}>
@@ -179,6 +189,7 @@ const drawLine = () => {
         <Button variant="secondary" onClick={undo}>
           Undo
         </Button>
+        
       </ButtonGroup>
       <input
         style={{ display: "none" }}
