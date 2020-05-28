@@ -11,7 +11,7 @@ export function ProfilePage(props){
    
     let currentUser = props.currentUser
     
-    if(currentUser.username === undefined && currentUser.image == undefined){
+    if(currentUser.username === undefined && currentUser.images === undefined){
         currentUser = {username: "default", password: "password", images: []}
     }
     return (
@@ -20,7 +20,7 @@ export function ProfilePage(props){
             <h1>Welcome</h1>
               <div class="ui massive violet label">{currentUser.username}</div>
                 <h2>Image Gallery:</h2>
-                {(currentUser.images != []) ? 
+                {(currentUser.images !== undefined) ? 
                 currentUser.images.map( image => 
                 <div class="ui card" class="ui segment" >
                   <img onClick={() => history.push(`/show/${image.id}`)} src={image.url} class="ui fluid image" class="ui medium centered image" />  
