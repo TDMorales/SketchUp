@@ -69,12 +69,12 @@ export function ImageShow(props){
             </div>
             <div className="content">
                 <button className="ui red button" onClick={handleDelete}>Delete</button>
-                <button 
+                {/* <button 
                 onClick={() => history.push(`/edit/${image.id}`)}
                 className="ui green button"
-                >Edit</button>
+                >Edit</button> */}
                 <button 
-                onClick={() => history.push('/index')}
+                onClick={() => history.push('/')}
                 className='ui green button'
                 >Home</button>
             </div>
