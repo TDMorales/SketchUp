@@ -11,12 +11,9 @@ export function ProfilePage(props){
    
     let currentUser = props.currentUser
     
-    if(currentUser.username === undefined ){
+    if(currentUser.username === undefined && currentUser.image == undefined){
         currentUser = {username: "default", password: "password", images: []}
     }
-
-  
-
     return (
         console.log(currentUser.images),
          <div style={{background:"lightgray"}}>
