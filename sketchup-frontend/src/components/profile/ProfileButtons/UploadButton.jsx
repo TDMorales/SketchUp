@@ -7,7 +7,7 @@ export function UploadButton(){
 
     return (
         <div>
-            <Button onClick={()=> history.push('/new')}>
+            <Button onClick={()=> history.push('/index')}>
                 Upload Image
             </Button>
         </div>

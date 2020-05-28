@@ -6,9 +6,15 @@ export function ImageShow(props){
     let [ image, setImage ] = useState({})
     let history = useHistory()
 
+<<<<<<< HEAD
+=======
+    //fix so likes don't refresh on each page refresh
+    let [likes, addLikes] = useState(image.likes)
+
+>>>>>>> d72b6c5ffe4db404fa37a226cf71a748619b3dfe
     let params = useParams()
     // console.log(props)
-    // console.log(params)
+    console.log(params)
     let selectedImage = params.id 
 
     //return an empty array to prevent repeat requests
@@ -27,8 +33,15 @@ export function ImageShow(props){
             })
     }
 
+<<<<<<< HEAD
     const handleLikes = (likes) => {
         console.log(likes)
+=======
+    const handleLikes = () => {
+      
+        addLikes(likes += 1)
+       
+>>>>>>> d72b6c5ffe4db404fa37a226cf71a748619b3dfe
         fetch(`http://localhost:3000/images/${selectedImage}`, {
             method: 'PATCH',
             headers: {
@@ -64,8 +77,7 @@ export function ImageShow(props){
                         class="ui big centered image"
                     />
                 </div>
-                {/* <button className="ui blue button" onClick={handleLikes}>Likes: {image.likes}</button> */}
-                <LikeButton handleLikes={handleLikes} likes={image.likes}  />
+                <button className="ui blue button" onClick={handleLikes}>Likes: {likes}</button>
             </div>
             <div className="content">
                 <button className="ui red button" onClick={handleDelete}>Delete</button>
