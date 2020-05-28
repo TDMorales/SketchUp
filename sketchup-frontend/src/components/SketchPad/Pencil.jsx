@@ -8,12 +8,12 @@ export const addLine = (stage, layer, color, mode = "brush") => {
     isPaint = true;
     let pos = stage.getPointerPosition();
     lastLine = new Konva.Line({
-      stroke: mode == "brush" ? color : "white",
-      strokeWidth: mode == "brush" ? 5 : 20,
+      stroke: mode === "brush" ? color : "white",
+      strokeWidth: mode === "brush" ? 5 : 20,
       globalCompositeOperation:
         mode === "brush" ? "source-over" : "destination-out",
       points: [pos.x, pos.y],
-      draggable: mode == "brush",
+      draggable: mode === "brush",
     });
     layer.add(lastLine);
   });
