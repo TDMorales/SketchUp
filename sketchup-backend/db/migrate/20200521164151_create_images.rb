@@ -3,6 +3,7 @@ class CreateImages < ActiveRecord::Migration[6.0]
     create_table :images do |t|
       t.integer :user_id
       t.string :title
+      t.integer :likes
       t.timestamps
     end
   end

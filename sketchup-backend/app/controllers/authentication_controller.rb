@@ -6,6 +6,7 @@ class AuthenticationController < ApplicationController
         user = User.find_by({ username: params[:username]})
         images = user.images
         if(user && user.authenticate(params[:password]))
+            # byebug
             # set the current user to the user we logged in
             session[:user_id] = user.id
             # return the appropriate user

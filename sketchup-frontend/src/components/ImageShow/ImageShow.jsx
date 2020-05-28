@@ -5,6 +5,11 @@ export function ImageShow(props){
     let [ image, setImage ] = useState({})
     let history = useHistory()
 
+    //fix so likes don't refresh on each page refresh
+    const [likes, addLikes] = useState({
+        likes: 0
+      })
+
     let params = useParams()
     // console.log(props)
     // console.log(params)
@@ -26,14 +31,35 @@ export function ImageShow(props){
             })
     }
 
+    const handleLikes = () => {
+       
+        fetch(`http://localhost:3000/images/${selectedImage}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                likes: likes.likes += 1
+            })
+        })
+        .then(resp => resp.json())
+        .then( obj => {
+            console.log(obj)
+            addLikes({
+                likes: obj.likes
+            })
+        })
+    } 
+
+
     //check for undefined image AND undefined image.user
     if(image === undefined || image.user === undefined){
         image = {title: "default", url: "default", user: {username: "default", password: "default"}}
     }
     //hardcode the size of the containers and make the image fluid
     return (
-        console.log(image.image),
         //  <div className="ui card" >
+        console.log(image.likes),    
         <div >
             <div className="content">
                 <div className="header"></div>
@@ -47,6 +73,7 @@ export function ImageShow(props){
                         class="ui big centered image"
                     />
                 </div>
+                <button className="ui blue button" onClick={handleLikes}>Likes: {likes.likes}</button>
             </div>
             <div className="content">
                 <button className="ui red button" onClick={handleDelete}>Delete</button>

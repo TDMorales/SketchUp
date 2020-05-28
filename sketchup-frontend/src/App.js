@@ -3,7 +3,7 @@ import  {ImageIndex } from './components/ImageIndex/ImageIndex'
 import  ImageUpload  from './components/ImageUpload/ImageUpload'
 import { ImageShow}  from './components/ImageShow/ImageShow'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import { HomePage } from './components/HomePage/HomePage'
+import { HomePage } from './components/homepage/HomePage'
 import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
 import SignUpPage from './components/profile/SignUpPage'
@@ -11,8 +11,10 @@ import SignUp from './components/auth/SignUp'
 import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
+
 import { NavBar } from './components/HomePage/NavBar'
 import { SketchPad } from './components/SketchPad/SketchPad'
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
   //export and import where you need it and make sure the function returns user
 
   let [currentUser, setUser] = useUser()
+  console.log(currentUser)
 
   //pass as a prop or preform in each component
   

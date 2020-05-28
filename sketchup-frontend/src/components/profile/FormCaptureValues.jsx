@@ -4,6 +4,7 @@ import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-rea
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useUser } from '../UseUser'
+import ImagesButton from '../homepage/HomePageButtons/ImagesButton'
 
   //log in page
 export function FormCaptureValues (props) {
@@ -30,8 +31,10 @@ export function FormCaptureValues (props) {
             password: e.target.password.value
         })
     })
-    let { user, success, id, images } = await response.json()
+    let {success, id, user, images} = await response.json()
     if(success){
+      console.log(user)
+      console.log(images)
         history.push(`/profile`)
         //user and images are separate for some reason
         //invoke 
