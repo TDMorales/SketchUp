@@ -17,7 +17,7 @@ export function LikeButton (props) {
     }, [props.likes] )
 
     return (
-        <button onClick={() => handleClick()}>
+        <button  className="ui blue button" onClick={() => handleClick()}>
             Likes: {likes}
         </button>
     )
