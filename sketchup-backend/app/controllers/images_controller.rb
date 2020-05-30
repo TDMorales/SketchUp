@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
             title: params[:newImageTitle],
             image: params[:newImage],
             user_id: current_user.id,
-            likes: 1
+            likes: 0
         )
     end 
 

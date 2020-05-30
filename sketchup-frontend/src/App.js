@@ -3,7 +3,7 @@ import  {ImageIndex } from './components/ImageIndex/ImageIndex'
 import  ImageUpload  from './components/ImageUpload/ImageUpload'
 import { ImageShow}  from './components/ImageShow/ImageShow'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import { HomePage } from './components/HomePage/HomePage'
+import { HomePage } from './components/homepage/HomePage'
 import './App.css';
 import { ProfilePage } from './components/profile/ProfilePage';
 import SignUpPage from './components/profile/SignUpPage'
@@ -12,7 +12,7 @@ import { useUser }from './components/UseUser'
 import {FormCaptureValues} from './components/profile/FormCaptureValues';
 import {CaptureUserAtSignUp} from './components/profile/CaptureUserAtSignUp';
 
-import { NavBar } from './components/HomePage/NavBar'
+import { NavBar } from './components/homepage/NavBar'
 import { SketchPad } from './components/SketchPad/SketchPad'
 
 

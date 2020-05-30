@@ -8,14 +8,15 @@ import { UploadButton } from './ProfileButtons/UploadButton'
 export function ProfilePage(props){
   //update user and his / her images here so profile page refreshes
     let history = useHistory()
-   
-    let currentUser = props.currentUser
+    let [currentUser] = useUser()
+    // console.log(user.images)
+    // let currentUser = props.currentUser
     
     if(currentUser.username === undefined && currentUser.images === undefined){
         currentUser = {username: "default", password: "password", images: []}
     }
     return (
-        console.log(currentUser.images),
+        // console.log(currentUser.images),
          <div style={{background:"lightgray"}}>
             <h1>Welcome</h1>
               <div class="ui massive violet label">{currentUser.username}</div>

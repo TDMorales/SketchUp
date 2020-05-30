@@ -9,6 +9,7 @@ import { addTextNode } from "./textNode";
 import Image from "./Image";
 import { v1 as uuidv1 } from 'uuid';
 import { select } from 'semantic-ui-react'
+import { useHistory } from 'react-router'
 
 export function SketchPad () {
   const [rectangles, setRectangles] = useState([]);
@@ -41,6 +42,8 @@ export function SketchPad () {
     setShapes(shs);
   };
 
+  let history = useHistory()
+
   const saveImage = () => {
     //save the entire canvas
     let canvas = layerEl.current.canvas._canvas
@@ -59,6 +62,8 @@ export function SketchPad () {
     body: body, 
     credentials: 'include'
     })
+
+    history.push('/index')
   }
 
   const addCircle = () => {
@@ -183,8 +188,13 @@ const drawLine = (colors) => {
         }}>
             <option value='black'>black</option>
             <option value='red'>red</option>
+            <option value='orange'>orange</option>
+            <option value='yellow'>yellow</option>
             <option value='green'>green</option>
             <option value='blue'>blue</option>
+            <option value='indigo'>indigo</option>
+            <option value='violet'>violet</option>
+
         </select>
         <Button variant="secondary" onClick={addRectangle}>
           Rectangle

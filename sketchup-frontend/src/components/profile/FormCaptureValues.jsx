@@ -4,7 +4,7 @@ import { Button,   Grid, Header, Image, Message, Segment } from 'semantic-ui-rea
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useUser } from '../UseUser'
-import ImagesButton from '../HomePage/HomePageButtons/ImagesButton'
+import ImagesButton from '../homepage/HomePageButtons/ImagesButton'
 
   //log in page
 export function FormCaptureValues (props) {
